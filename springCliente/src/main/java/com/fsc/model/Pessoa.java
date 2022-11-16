@@ -2,7 +2,6 @@ package com.fsc.model;
 
 import java.io.Serializable;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,9 +11,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "produto")
-public class Produto implements Serializable {
+@Table(name = "cliente")
+public class Pessoa implements Serializable {
 
+	
 	/**
 	 * 
 	 */
@@ -25,38 +25,29 @@ public class Produto implements Serializable {
 	private Long id;
 	
 	@NotBlank
-	@Column(name = "nome", unique = true, length = 50)
+	@Column(name = "nome", length = 50,nullable = true, unique = true)
 	private String nome;
 	
 	@NotBlank
-	@Column(name = "preco")
-	private Double preco;
+	@Column(name = "idade", length = 5, nullable = true)
+	private Integer idade;
 
-	
-	public Produto() {
+	public Pessoa() {
 		
 	}
-	
-	
-	
-	public Produto(@NotBlank String nome, @NotBlank Double preco) {
+
+	public Pessoa(String nome, Integer idade) {
 		super();
 		this.nome = nome;
-		this.preco = preco;
+		this.idade = idade;
 	}
 
-
-
-	
-
-	public Produto(Long id, @NotBlank String nome, @NotBlank Double preco) {
+	public Pessoa(Long id, String nome, Integer idade) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.preco = preco;
+		this.idade = idade;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -74,22 +65,19 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
-	public Double getPreco() {
-		return preco;
+	public Integer getIdade() {
+		return idade;
 	}
 
-	public void setPreco(Double preco) {
-		this.preco = preco;
+	public void setIdade(Integer idade) {
+		this.idade = idade;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-
-
-
-
+	
+	
 	
 	
 }
