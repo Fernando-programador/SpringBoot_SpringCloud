@@ -14,7 +14,7 @@ import com.fsc.model.Produto;
 import com.fsc.repository.ProdutoRepository;
 
 @RestController
-@RequestMapping("api/produto")
+@RequestMapping("/produto")
 public class ProdutoResource {
 
 	@Autowired
@@ -26,7 +26,7 @@ public class ProdutoResource {
 		return ResponseEntity.ok(produto);
 	}
 
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Produto> obterPorId(@PathVariable Long id) {
 		Produto produto = produtoRepository.findById(id).get();
 		return ResponseEntity.ok(produto);
