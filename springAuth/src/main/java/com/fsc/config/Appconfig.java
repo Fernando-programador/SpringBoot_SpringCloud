@@ -15,7 +15,7 @@ public class Appconfig {
 
 	
 	
-	@Bean
+	
 	 
 
 	
